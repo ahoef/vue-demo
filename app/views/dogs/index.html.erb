@@ -1,1 +1,18 @@
-<%= render partial: 'thumbnail', collection: @dogs, as: :dog %>
+<%#= render partial: 'thumbnail', collection: @dogs, as: :dog %>
+
+<div id="container">
+  <h1>{{ headline }}</h1>
+
+  <alert v-show="alertMessage" v-bind:message="alertMessage"></alert>
+
+  <div v-for="dog in dogs">
+    <a v-bind:href="dog.url">
+      <article>
+        <h2 class="dog-name">{{ dog.name }}</h2>
+        <img v-bind:src="dog.images[0]" v-bind:alt="dog.name">
+      </article>
+    </a>
+
+    <button v-on:click="handleClick(dog.name, dog.description)">Click Me</button>
+  </div>
+</div>
